@@ -134,7 +134,7 @@ export default css`
   *,
   *::after {
     box-sizing: border-box;
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-family: 'Quicksand', Helvetica, Arial, sans-serif;
     font-size: 10px;
     font-stretch: normal;
     font-style: normal;
