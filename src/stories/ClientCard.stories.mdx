@@ -1,0 +1,60 @@
+import faker from 'faker';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { boolean, text } from '@storybook/addon-knobs';
+
+import ClientCard from '../components/ClientCard';
+
+<Meta title="Client Card" component={ClientCard} />
+
+# Client Card
+
+Renders a client card with some props:
+
+- `name`: User displayable name
+- `email`: User email
+- `company`: User company
+- `id`: User ID
+- `active`: Is that the active user?
+
+<Preview>
+  <Story name="Default">
+    <ClientCard
+      company={faker.company.companyName()}
+      email={faker.internet.email()}
+      id={faker.random.uuid()}
+      name={faker.name.findName()}
+    />
+  </Story>
+</Preview>
+
+# Active Card
+
+When `userId` route param match with component id, the card will be _active_ and their style will represent this state of component.
+
+<Preview>
+  <Story name="Active Card">
+    <ClientCard
+      active={true}
+      company={faker.company.companyName()}
+      email={faker.internet.email()}
+      id={faker.random.uuid()}
+      name={faker.name.findName()}
+    />
+  </Story>
+</Preview>
+
+## Playground
+
+Try your values
+
+<Preview>
+  <Story name="Playground">
+    <ClientCard
+      active={boolean('Active User?', false)}
+      company={text('Company', faker.company.companyName())}
+      email={text('Email', faker.internet.email())}
+      id={text('ID', faker.random.uuid())}
+      name={text('Name', faker.name.findName())}
+    />
+  </Story>
+</Preview>
