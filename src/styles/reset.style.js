@@ -100,17 +100,25 @@ export default css`
   section {
     display: block;
   }
+
+  html {
+    font-size: 10px;
+  }
+
   body {
     line-height: 1;
   }
+
   ol,
   ul {
     list-style: none;
   }
+
   blockquote,
   q {
     quotes: none;
   }
+
   blockquote:before,
   blockquote:after,
   q:before,
@@ -118,14 +126,17 @@ export default css`
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   button,
   a {
     cursor: pointer;
   }
+
   a {
     text-decoration: none;
   }
@@ -135,7 +146,6 @@ export default css`
   *::after {
     box-sizing: border-box;
     font-family: 'Quicksand', Helvetica, Arial, sans-serif;
-    font-size: 10px;
     font-stretch: normal;
     font-style: normal;
     font-weight: normal;
