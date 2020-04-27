@@ -1,0 +1,18 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { NavWrapper } from './utils';
+import Navbar from '../components/Navbar';
+
+<Meta title="Navbar" component={Navbar} />
+
+# Navbar
+
+Provide to user a way to navigate between application pages. It will be rendered on top of screen.
+
+<Preview>
+  <Story name="Default">
+    <NavWrapper>
+      <Navbar />
+    </NavWrapper>
+  </Story>
+</Preview>
