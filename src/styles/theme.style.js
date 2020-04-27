@@ -5,9 +5,9 @@ const colors = {
   primary: chroma('#007DFA'),
   primaryDark: chroma('#0065DC'),
 
-  secondaryLight: chroma('#2796FB'),
-  secondary: chroma('#007DFA'),
-  secondaryDark: chroma('#0065DC'),
+  secondaryLight: chroma('#FDDC88'),
+  secondary: chroma('#FCD581'),
+  secondaryDark: chroma('#FFC813'),
 
   dark: chroma('#212121'),
   darkest: chroma('#000000'),
