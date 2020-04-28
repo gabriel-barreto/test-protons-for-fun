@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ChevronLeft } from 'styled-icons/material';
+import Controls from './Controls';
+import Thumb from './Thumb';
 
 import * as S from './styled';
 
@@ -15,6 +16,10 @@ function Gallery({ photos }) {
   function onThumbClickHandler(photoId) {
     const { title, url } = photos.find(({ id }) => id === photoId);
     setActive({ id: photoId, title, url });
+  }
+
+  function onControlClickHandler(action) {
+    console.log(action);
   }
 
   useEffect(() => {
@@ -31,44 +36,18 @@ function Gallery({ photos }) {
         src={active.url}
         title={active.title}
       />
-      <S.GalleryControls>
-        <S.GalleryControlButton
-          alt="Fotos Anteriores"
-          title="Fotos Anteriores"
-          type="button"
-          onClick={() => console.log('Prev photos page')}
-        >
-          <ChevronLeft size={32} />
-        </S.GalleryControlButton>
 
-        <S.GalleryThumbs>
-          {photos.map(({ thumbnailUrl, title, id }) => (
-            <S.GalleryThumbItem key={id}>
-              <S.GalleryThumbButton
-                alt="Clique para visualizar"
-                className={id === active.id && '--active'}
-                title="Clique para visualizar"
-                onClick={() => onThumbClickHandler(id)}
-              >
-                <S.GalleryThumbImg
-                  alt={title}
-                  src={thumbnailUrl}
-                  title={title}
-                />
-              </S.GalleryThumbButton>
-            </S.GalleryThumbItem>
-          ))}
-        </S.GalleryThumbs>
-
-        <S.GalleryControlButton
-          alt="Próximas Fotos"
-          title="Próximas Fotos"
-          type="button"
-          onClick={() => console.log('Next photos page')}
-        >
-          <ChevronLeft size={32} />
-        </S.GalleryControlButton>
-      </S.GalleryControls>
+      <Controls onControlClick={onControlClickHandler}>
+        {photos.map(({ id, thumbnailUrl, title }) => (
+          <Thumb
+            active={id === active.id}
+            id={id}
+            title={title}
+            url={thumbnailUrl}
+            onClick={() => onThumbClickHandler(id)}
+          />
+        ))}
+      </Controls>
     </S.GalleryGrid>
   );
 }
