@@ -6,12 +6,9 @@ import Thumb from './Thumb';
 
 import * as S from './styled';
 
+const INITIAL_STATE = { id: '', title: '', url: '' };
 function Gallery({ photos }) {
-  const [active, setActive] = useState({
-    id: '',
-    title: '',
-    url: '',
-  });
+  const [active, setActive] = useState({ ...INITIAL_STATE });
 
   function onThumbClickHandler(photoId) {
     const { title, url } = photos.find(({ id }) => id === photoId);
@@ -42,6 +39,7 @@ function Gallery({ photos }) {
           <Thumb
             active={id === active.id}
             id={id}
+            key={id}
             title={title}
             url={thumbnailUrl}
             onClick={() => onThumbClickHandler(id)}
