@@ -1,0 +1,63 @@
+import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom'
+import { Meta, Preview, Story, Wrapper } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links';
+
+import { Client as ClientFactory } from './factories';
+
+import ClientCard from '../components/ClientCard';
+import ClientsList from '../components/ClientsList';
+
+import { Theme } from '../styles';
+
+<Meta title="Clients List" component={ClientsList} />
+
+# Clients List
+
+Render a list of `Client Card` components.
+
+### The client card component
+<Wrapper>
+  <button
+    style={{
+      background: 'none',
+      border: 'none',
+      color: '#337ab7',
+      fontSize: '14px',
+      margin: '4px 0 0 0'
+    }}
+    onClick={linkTo("Client Card", "Default")}
+  >
+    Ir para Client Card Stories
+  </button>
+</Wrapper>
+<Preview>
+  <ThemeProvider theme={Theme}>
+    <BrowserRouter>
+      <ClientCard company={ClientFactory.single().company} email={ClientFactory.single().email} id={ClientFactory.single().id} name={ClientFactory.single().name} />
+    </BrowserRouter>
+  </ThemeProvider>
+  {/*
+    Or somehting like this...
+    <ClientCard {...ClientFactory.single()} />
+  */}
+</Preview>
+
+## Props
+`clients`: A list of Clients
+```typescript
+interface Client {
+  company: string
+  email: string
+  id: string
+  name: string
+}
+
+var clients: Array<Client>
+```
+
+<Preview>
+  <Story name="Default">
+    <ClientsList clients={ClientFactory.list(16)} />
+  </Story>
+</Preview>
