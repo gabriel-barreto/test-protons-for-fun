@@ -4,17 +4,21 @@ import { boolean, text } from '@storybook/addon-knobs';
 
 import ClientCard from '../components/ClientCard';
 
-<Meta title="Client Card" component={ClientCard} />
+<Meta component={ClientCard} title="Client Card" />
 
 # Client Card
 
 Renders a client card with some props:
 
-- `name`: User displayable name
-- `email`: User email
-- `company`: User company
-- `id`: User ID
-- `active`: Is that the active user?
+## Props
+```typescript
+interface Client {
+  company: string
+  email: string
+  id: string
+  name: string
+}
+```
 
 <Preview>
   <Story name="Default">
