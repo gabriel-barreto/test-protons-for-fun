@@ -1,0 +1,32 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { Gallery as GalleryFactory } from './factories';
+
+import Gallery from '../components/Gallery'
+
+<Meta component={Gallery} title="Gallery" />
+
+# Gallery
+
+Displays Client's photos in a slider
+
+
+## Props
+`slides`: A list of users photos
+```typescript
+interface Photo {
+  id: string
+  title: string
+  thumbnailUrl: string
+  url: string
+}
+
+// default is defined to an empty Array
+var photos: Array<Slide>
+```
+
+<Preview>
+  <Story name="Default">
+    <Gallery slides={GalleryFactory.list(4)} />
+  </Story>
+</Preview>
