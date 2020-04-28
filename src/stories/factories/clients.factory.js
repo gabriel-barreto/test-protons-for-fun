@@ -6,7 +6,6 @@ export function single({
   id = faker.random.uuid(),
   name = faker.name.findName(),
 } = {}) {
-  console.log(faker);
   return { company, email, id, name };
 }
 
