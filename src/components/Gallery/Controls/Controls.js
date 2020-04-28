@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ChevronLeft } from 'styled-icons/material';
+import { ChevronLeft, ChevronRight } from 'styled-icons/material';
 
 import * as S from './styled';
 
@@ -25,7 +25,7 @@ function GalleryControls({ children, onControlClick }) {
         type="button"
         onClick={() => onControlClick('next')}
       >
-        <ChevronLeft size={32} />
+        <ChevronRight size={32} />
       </S.GalleryControlButton>
     </S.GalleryControls>
   );

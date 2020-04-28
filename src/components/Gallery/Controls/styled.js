@@ -24,19 +24,12 @@ export const GalleryControlButton = styled.button`
   width: 4.8rem;
   will-change: background-color, box-shadow, transform;
 
-  &:last-of-type {
-    transform: rotate(180deg);
-  }
-
   &:hover {
     background-color: ${({ theme }) => theme.colors.darkest};
     box-shadow: ${({ theme }) => theme.shadows.md};
   }
   &:active {
     transform: scale(0.88);
-    &:last-of-type {
-      transform: rotate(180deg) scale(0.88);
-    }
   }
 `;
 
