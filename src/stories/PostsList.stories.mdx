@@ -1,0 +1,54 @@
+import { ThemeProvider } from 'styled-components'
+import { Meta, Preview, Story, Wrapper } from '@storybook/addon-docs/blocks';
+import { linkTo } from '@storybook/addon-links'
+
+import { StoryLink } from './utils'
+import { Post as PostFactory } from './factories'
+
+import { Theme } from '../styles'
+import PostCard from '../components/PostCard'
+import PostsList from '../components/PostsList'
+
+<Meta component={PostsList} title="Posts List" />
+
+# Posts List
+
+Render a list of posts of a user
+
+Items rendered in the list are represented by the `PostCard` component
+
+### The post card component
+
+<Wrapper>
+  <StoryLink onClick={linkTo('Post Card', 'Default')}>
+    Ir para Post Card stories
+  </StoryLink>
+</Wrapper>
+
+<Preview>
+  <ThemeProvider theme={Theme}>
+    <PostCard
+      body={PostFactory.single().body}
+      title={PostFactory.single().title}
+    />
+  </ThemeProvider>
+</Preview>
+
+## Props
+`posts`: A list of posts
+```typescript
+interface Post {
+  body: string
+  id: string
+  title: string
+}
+
+var posts: Array<Post>
+// default value is set to an empty array
+```
+
+<Preview>
+  <Story name="Default">
+    <PostsList posts={PostFactory.list(8)} />
+  </Story>
+</Preview>
