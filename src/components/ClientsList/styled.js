@@ -3,8 +3,11 @@ import styled from 'styled-components';
 export const ClientsListWrapper = styled.ul`
   height: 100%;
   overflow-y: scroll;
-  min-height: 100vh;
   width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ClientListItem = styled.li`
