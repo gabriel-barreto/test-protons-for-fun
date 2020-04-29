@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const LayoutWrapper = styled.main`
   background-color: ${({ theme }) => theme.colors.dark.hex()};
-  height: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 `;
 
 export const LayoutContent = styled.div`
