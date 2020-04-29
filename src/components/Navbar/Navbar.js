@@ -11,8 +11,8 @@ function Navbar() {
 
   return (
     <S.Navbar>
-      <S.NavbarBrand alt="logoipsum" src={brand} title="logoipsum" />
-      <S.NavbarNav>
+      <S.Brand alt="logoipsum" src={brand} title="logoipsum" />
+      <S.Nav>
         {links.map(({ activeCondition, label, subpath }) => (
           <S.NavItem key={subpath}>
             <S.NavLink
@@ -23,7 +23,7 @@ function Navbar() {
             </S.NavLink>
           </S.NavItem>
         ))}
-      </S.NavbarNav>
+      </S.Nav>
     </S.Navbar>
   );
 }

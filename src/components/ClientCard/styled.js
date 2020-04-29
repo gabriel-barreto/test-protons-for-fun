@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-export const ClientCardTitle = styled.h2`
+export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.lightest.hex()};
   font-size: ${({ theme }) => theme.sizes.h2};
   font-weight: ${({ theme }) => theme.weights.strong};
@@ -11,7 +11,7 @@ export const ClientCardTitle = styled.h2`
   will-change: color;
 `;
 
-export const ClientCardInfo = styled.p`
+export const Info = styled.p`
   color: ${({ theme }) => theme.colors.lightest.hex()};
   font-size: ${({ theme }) => theme.sizes.p};
   line-height: 144%;
@@ -21,27 +21,27 @@ export const ClientCardInfo = styled.p`
   }
 `;
 
-const hoverClientCard = css`
+const hoverCard = css`
   transform: translateX(16px);
 `;
 
-const activeClientCard = css`
+const activeCard = css`
   border-left-color: ${({ theme }) => theme.colors.primary.hex()};
-  > ${ClientCardTitle} {
+  > ${Title} {
     color: ${({ theme }) => theme.colors.primary.hex()};
   }
 
   &:hover {
-    ${hoverClientCard};
+    ${hoverCard};
     border-left-color: ${({ theme }) => theme.colors.secondary.hex()};
 
-    > ${ClientCardTitle} {
+    > ${Title} {
       color: ${({ theme }) => theme.colors.secondary.hex()};
     }
   }
 `;
 
-export const ClientCardWrapper = styled(Link)`
+export const Card = styled(Link)`
   background-color: ${({ theme }) => theme.colors.darkest.hex()};
   box-shadow: ${({ theme }) => theme.shadows.md};
   border-left: 8px solid transparent;
@@ -57,8 +57,8 @@ export const ClientCardWrapper = styled(Link)`
   will-change: border-left-color, transform;
 
   &:hover {
-    ${hoverClientCard};
-    > ${ClientCardTitle} {
+    ${hoverCard};
+    > ${Title} {
       color: ${({ theme }) => theme.colors.primary.hex()};
     }
   }
@@ -67,6 +67,6 @@ export const ClientCardWrapper = styled(Link)`
   }
 
   &.--active {
-    ${activeClientCard};
+    ${activeCard};
   }
 `;

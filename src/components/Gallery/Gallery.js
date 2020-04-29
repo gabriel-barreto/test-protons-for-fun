@@ -40,12 +40,8 @@ function Gallery({ photos }) {
   }, [photos]);
 
   return (
-    <S.GalleryGrid>
-      <S.GalleryActivePhoto
-        alt={active.title}
-        src={active.url}
-        title={active.title}
-      />
+    <S.Grid>
+      <S.ActivePhoto alt={active.title} src={active.url} title={active.title} />
 
       <Controls onControlClick={onControlClickHandler}>
         {photos
@@ -61,7 +57,7 @@ function Gallery({ photos }) {
             />
           ))}
       </Controls>
-    </S.GalleryGrid>
+    </S.Grid>
   );
 }
 

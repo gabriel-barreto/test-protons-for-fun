@@ -7,27 +7,27 @@ import * as S from './styled';
 
 function GalleryControls({ children, onControlClick }) {
   return (
-    <S.GalleryControls>
-      <S.GalleryControlButton
+    <S.Controls>
+      <S.ControlButton
         alt="Fotos Anteriores"
         title="Fotos Anteriores"
         type="button"
         onClick={() => onControlClick('prev')}
       >
         <ChevronLeft size={32} />
-      </S.GalleryControlButton>
+      </S.ControlButton>
 
-      <S.GalleryThumbs>{children}</S.GalleryThumbs>
+      <S.Thumbs>{children}</S.Thumbs>
 
-      <S.GalleryControlButton
+      <S.ControlButton
         alt="Próximas Fotos"
         title="Próximas Fotos"
         type="button"
         onClick={() => onControlClick('next')}
       >
         <ChevronRight size={32} />
-      </S.GalleryControlButton>
-    </S.GalleryControls>
+      </S.ControlButton>
+    </S.Controls>
   );
 }
 

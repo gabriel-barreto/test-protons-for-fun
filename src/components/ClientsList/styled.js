@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ClientsListWrapper = styled.ul`
+export const List = styled.ul`
   height: 100%;
   overflow-y: scroll;
   width: 100%;
@@ -10,7 +10,7 @@ export const ClientsListWrapper = styled.ul`
   }
 `;
 
-export const ClientListItem = styled.li`
+export const Item = styled.li`
   &:not(:last-of-type) {
     margin: 0 0 1rem 0;
   }

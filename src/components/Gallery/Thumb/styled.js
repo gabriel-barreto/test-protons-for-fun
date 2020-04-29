@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const GalleryThumbImg = styled.img`
+export const ThumbImg = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: center;
   width: 100%;
 `;
 
-export const GalleryThumbItem = styled.li`
+export const ThumbItem = styled.li`
   height: 100%;
   width: 100%;
 `;
@@ -30,7 +30,7 @@ const thumbPseudoBase = css`
   width: 100%;
   will-change: background, color, opacity;
 `;
-export const GalleryThumbButton = styled.button`
+export const ThumbButton = styled.button`
   background: none;
   border: none;
   box-shadow: ${({ theme }) => theme.shadows.md};

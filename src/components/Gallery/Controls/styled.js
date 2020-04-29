@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const GalleryControls = styled.div`
+export const Controls = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
   width: 100%;
 `;
 
-export const GalleryControlButton = styled.button`
+export const ControlButton = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
@@ -33,7 +33,7 @@ export const GalleryControlButton = styled.button`
   }
 `;
 
-export const GalleryThumbs = styled.ul`
+export const Thumbs = styled.ul`
   align-items: center;
   display: grid;
   grid-column-gap: 1rem;

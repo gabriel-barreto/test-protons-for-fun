@@ -10,9 +10,9 @@ function ClientsList({ clients }) {
   const { userId: currentUserId = 0 } = useParams();
 
   return (
-    <S.ClientsListWrapper>
+    <S.List>
       {clients.map(({ company, email, id, name }) => (
-        <S.ClientListItem key={id}>
+        <S.Item key={id}>
           <ClientCard
             active={id === currentUserId}
             company={company}
@@ -20,9 +20,9 @@ function ClientsList({ clients }) {
             id={id}
             name={name}
           />
-        </S.ClientListItem>
+        </S.Item>
       ))}
-    </S.ClientsListWrapper>
+    </S.List>
   );
 }
 

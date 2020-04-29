@@ -8,11 +8,11 @@ import * as S from './styled';
 
 function Layout({ children, title }) {
   return (
-    <S.LayoutWrapper>
+    <S.Layout>
       <SEO title={title} />
       <Navbar />
-      <S.LayoutContent>{children}</S.LayoutContent>
-    </S.LayoutWrapper>
+      <S.Container>{children}</S.Container>
+    </S.Layout>
   );
 }
 

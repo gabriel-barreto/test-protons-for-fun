@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const GalleryGrid = styled.div`
+export const Grid = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-row-gap: 1.6rem;
@@ -9,7 +9,7 @@ export const GalleryGrid = styled.div`
   width: 100%;
 `;
 
-export const GalleryActivePhoto = styled.img`
+export const ActivePhoto = styled.img`
   height: 100%;
   box-shadow: ${({ theme }) => theme.shadows.md};
   min-height: 72rem;

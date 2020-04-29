@@ -14,7 +14,7 @@ export const Navbar = styled.nav`
   width: 100%;
 `;
 
-export const NavbarBrand = styled.img`
+export const Brand = styled.img`
   align-items: center;
   display: flex;
   height: 4.8rem;
@@ -23,7 +23,7 @@ export const NavbarBrand = styled.img`
   width: auto;
 `;
 
-export const NavbarNav = styled.ul`
+export const Nav = styled.ul`
   align-items: center;
   display: flex;
   justify-content: flex-end;

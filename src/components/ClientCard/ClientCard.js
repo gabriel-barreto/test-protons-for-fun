@@ -5,11 +5,11 @@ import * as S from './styled';
 
 function ClientCard({ active, company, email, id, name }) {
   return (
-    <S.ClientCardWrapper className={active && '--active'} to={`/${id}/fotos`}>
-      <S.ClientCardTitle>{name}</S.ClientCardTitle>
-      <S.ClientCardInfo>{email}</S.ClientCardInfo>
-      <S.ClientCardInfo>{company}</S.ClientCardInfo>
-    </S.ClientCardWrapper>
+    <S.Card className={active && '--active'} to={`/${id}/fotos`}>
+      <S.Title>{name}</S.Title>
+      <S.Info>{email}</S.Info>
+      <S.Info>{company}</S.Info>
+    </S.Card>
   );
 }
 

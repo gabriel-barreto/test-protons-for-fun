@@ -5,16 +5,16 @@ import * as S from './styled';
 
 function GalleryThumb({ active, title, url, onClick }) {
   return (
-    <S.GalleryThumbItem>
-      <S.GalleryThumbButton
+    <S.ThumbItem>
+      <S.ThumbButton
         alt="Clique para visualizar"
         className={active && '--active'}
         title="Clique para visualizar"
         onClick={onClick}
       >
-        <S.GalleryThumbImg alt={title} src={url} title={title} />
-      </S.GalleryThumbButton>
-    </S.GalleryThumbItem>
+        <S.ThumbImg alt={title} src={url} title={title} />
+      </S.ThumbButton>
+    </S.ThumbItem>
   );
 }
 

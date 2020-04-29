@@ -5,10 +5,10 @@ import * as S from './styled';
 
 function PostCard({ title, body }) {
   return (
-    <S.PostCardWrapper>
-      <S.PostCardTitle>{title}</S.PostCardTitle>
-      <S.PostCardContent>{body}</S.PostCardContent>
-    </S.PostCardWrapper>
+    <S.PostCard>
+      <S.Title>{title}</S.Title>
+      <S.Body>{body}</S.Body>
+    </S.PostCard>
   );
 }
 
