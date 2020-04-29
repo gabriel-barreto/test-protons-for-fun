@@ -13,7 +13,7 @@ export const PostCardContent = styled.p`
 `;
 
 export const PostCardWrapper = styled.article`
-  background-color: ${({ theme }) => theme.colors.dark};
+  background-color: ${({ theme }) => theme.colors.darkest};
   box-shadow: ${({ theme }) => theme.shadows.md};
   color: ${({ theme }) => theme.colors.lightest};
   padding: 3.2rem;
