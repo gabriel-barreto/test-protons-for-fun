@@ -1,8 +1,9 @@
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import { Meta, Preview, Story, Wrapper } from '@storybook/addon-docs/blocks';
 import { linkTo } from '@storybook/addon-links';
 
+import { StoryLink } from './utils';
 import { Client as ClientFactory } from './factories';
 
 import ClientCard from '../components/ClientCard';
@@ -17,30 +18,24 @@ import { Theme } from '../styles';
 Render a list of `Client Card` components.
 
 ### The client card component
+
 <Wrapper>
-  <button
-    style={{
-      background: 'none',
-      border: 'none',
-      color: '#337ab7',
-      fontSize: '14px',
-      margin: '4px 0 0 0'
-    }}
-    onClick={linkTo("Client Card", "Default")}
-  >
-    Ir para Client Card Stories
-  </button>
+  <StoryLink onClick={linkTo("Client Card", "Default")}>
+    Ir para Client Card stories
+  </StoryLink>
 </Wrapper>
+
 <Preview>
   <ThemeProvider theme={Theme}>
     <BrowserRouter>
-      <ClientCard company={ClientFactory.single().company} email={ClientFactory.single().email} id={ClientFactory.single().id} name={ClientFactory.single().name} />
+      <ClientCard
+        company={ClientFactory.single().company}
+        email={ClientFactory.single().email}
+        id={ClientFactory.single().id}
+        name={ClientFactory.single().name}
+      />
     </BrowserRouter>
   </ThemeProvider>
-  {/*
-    Or somehting like this...
-    <ClientCard {...ClientFactory.single()} />
-  */}
 </Preview>
 
 ## Props
@@ -54,6 +49,7 @@ interface Client {
 }
 
 var clients: Array<Client>
+// default value is set to an empty array
 ```
 
 <Preview>
