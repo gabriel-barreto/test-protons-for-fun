@@ -1,11 +1,21 @@
 import React from 'react';
 
-import { Layout } from '../../components';
+import { Gallery as GalleryFactory, Client } from '../../stories/factories';
+
+import ClientsList from '../../components/ClientsList';
+import ClientDetails from '../../components/ClientDetails';
+import Gallery from '../../components/Gallery';
+import { Layout, PageGrid } from '../../components';
 
 function PhotosPage() {
   return (
     <Layout title="Fotos">
-      <p style={{ color: '#fff', fontSize: '1.6rem' }}>Photos Page</p>
+      <PageGrid>
+        <ClientsList clients={Client.list(16)} />
+        <ClientDetails client={Client.single()}>
+          <Gallery photos={GalleryFactory.list(11)} />
+        </ClientDetails>
+      </PageGrid>
     </Layout>
   );
 }
