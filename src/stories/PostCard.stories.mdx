@@ -1,0 +1,47 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+
+import { Post as PostFactory } from './factories';
+
+import PostCard from '../components/PostCard';
+
+<Meta component={PostCard} title="Post Card" />
+
+# Post Card
+
+Render a post with title and body in a card
+
+## Props
+
+`title`: The post title
+
+`body`: The post content
+
+```typescript
+interface Post {
+  title: string
+  body: string
+}
+```
+
+<Preview>
+  <Story name="Default">
+    <PostCard
+      body={PostFactory.single().body}
+      title={PostFactory.single().title}
+    />
+  </Story>
+</Preview>
+
+# Playground
+
+Try your own values
+
+<Preview>
+  <Story name="Playground">
+    <PostCard
+      body={text('Post Body', PostFactory.single().body)}
+      title={text('Post Title', PostFactory.single().title)}
+    />
+  </Story>
+</Preview>
