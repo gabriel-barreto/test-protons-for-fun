@@ -6,7 +6,4 @@ export const Item = styled.li`
   }
 `;
 
-export const List = styled.ul`
-  height: 100%;
-  overflow-y: scroll;
-`;
+export const List = styled.ul``;
