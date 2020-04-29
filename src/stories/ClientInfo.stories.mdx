@@ -1,0 +1,38 @@
+import { ThemeProvider } from 'styled-components';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { Client as ClientFactory } from './factories'
+
+import { GlobalStyle, Theme } from '../styles'
+import ClientInfo from '../components/ClientInfo';
+
+<Meta component={ClientInfo} title="Client Info" />
+
+# Client Info
+
+Displays client name and address in a fancy way
+
+<Preview>
+  <Story name="Default">
+    <ClientInfo
+      address={ClientFactory.single().address}
+      name={ClientFactory.single().name}
+    />
+  </Story>
+  <ThemeProvider theme={Theme}>
+    <div style={{
+        backgroundColor: '#212121',
+        left: 0,
+        padding: '32px',
+        position: 'absolute',
+        top: 0,
+        width: '100%',
+      }}
+    >
+      <ClientInfo
+        address={ClientFactory.single().address}
+        name={ClientFactory.single().name}
+      />
+    </div>
+  </ThemeProvider>
+</Preview>
