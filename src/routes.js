@@ -6,12 +6,12 @@ import { Photos, Posts, NotFound } from './pages';
 export default function () {
   return (
     <Switch>
-      <Route path="/:userId/photos" component={Photos} />
+      <Route path="/:userId/fotos" component={Photos} />
       <Route path="/:userId/posts" component={Posts} />
 
       <Route path="/erro/nao-encontrado" component={NotFound} />
 
-      <Redirect from="/" to="/1/photos" exact />
+      <Redirect from="/" to="/1/fotos" exact />
       <Redirect to="/erro/nao-encontrado" />
     </Switch>
   );
