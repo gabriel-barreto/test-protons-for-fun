@@ -5,7 +5,7 @@ import * as S from './styled';
 
 function ClientCard({ active, company, email, id, name }) {
   return (
-    <S.ClientCardWrapper className={active && '--active'} to={`${id}/fotos`}>
+    <S.ClientCardWrapper className={active && '--active'} to={`/${id}/fotos`}>
       <S.ClientCardTitle>{name}</S.ClientCardTitle>
       <S.ClientCardInfo>{email}</S.ClientCardInfo>
       <S.ClientCardInfo>{company}</S.ClientCardInfo>
