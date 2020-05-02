@@ -7,14 +7,14 @@ import * as S from './styled';
 import ClientCard from '../ClientCard';
 
 function ClientsList({ clients }) {
-  const { userId: currentUserId = 0 } = useParams();
+  const { userId = '0' } = useParams();
 
   return (
     <S.List>
       {clients.map(({ company, email, id, name }) => (
         <S.Item key={id}>
           <ClientCard
-            active={id === currentUserId}
+            active={id === parseInt(userId, 10)}
             company={company}
             email={email}
             id={id}
