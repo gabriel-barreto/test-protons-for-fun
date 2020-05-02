@@ -1,0 +1,32 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+import { LoaderToggler, LoaderWrapper } from './utils';
+
+import { CONTEXT_TOPIC, LoaderContextProvider } from '../contexts/loader.context';
+import { Loader } from '../components';
+
+<Meta component={Loader} title="Loader" />
+
+# Loader
+Full screen application loader
+
+### Loader Context
+The component connects with the Loader Context, and their state (visibility) is provided by the context.
+
+### Updating loader visibility
+To can update values outside a Component, the context has a subscriber registered in a topic that can be updated publishing a new `boolean` value to the exported topic `CONTEXT_TOPIC` at context file.
+
+<Preview>
+  <Story name="Default">
+    <LoaderContextProvider>
+      <LoaderWrapper>
+        <LoaderToggler.Toggler
+          onClick={LoaderToggler.toggle}
+        >
+          Toggle Loader
+        </LoaderToggler.Toggler>
+        <Loader />
+      </LoaderWrapper>
+    </LoaderContextProvider>
+  </Story>
+</Preview>
