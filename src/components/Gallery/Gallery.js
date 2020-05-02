@@ -65,7 +65,7 @@ Gallery.defaultProps = { photos: [] };
 Gallery.propTypes = {
   photos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
       thumbnailUrl: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
