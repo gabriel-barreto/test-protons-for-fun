@@ -1,0 +1,43 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+
+import NotFoundIllustration from '../components/NotFoundIllustration';
+
+<Meta component={NotFoundIllustration} title="Not Found" />
+
+# Not Found Illustration
+
+Displays an illustration to show to user a message what it searches is not here anymore.
+
+## Props
+```typescript
+interface Props {
+  actionLabel?: string
+}
+```
+
+<Preview>
+  <Story name="Default">
+    <NotFoundIllustration />
+  </Story>
+</Preview>
+
+# With Action
+
+Shows a button under the messages to make available for users a way to go back from where there come
+
+<Preview>
+  <Story name="With Action">
+    <NotFoundIllustration actionLabel={'Voltar!'} />
+  </Story>
+</Preview>
+
+# Playground
+
+Try your own values
+
+<Preview>
+  <Story name="Playground">
+    <NotFoundIllustration actionLabel={text('Action Label', 'Lorem Ipsum')} />
+  </Story>
+</Preview>
