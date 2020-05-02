@@ -18,7 +18,7 @@ ClientCard.propTypes = {
   active: PropTypes.bool,
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   company: PropTypes.string.isRequired,
 };
 
