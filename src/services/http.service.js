@@ -1,7 +1,7 @@
 import axios from 'axios';
 import PubSub from 'pubsub-js';
 
-import { LoaderContextTopic } from '../contexts';
+import { CONTEXT_TOPIC as LoaderContextTopic } from '../contexts/loader.context';
 
 const $http = axios.create({
   baseURL: 'http://jsonplaceholder.typicode.com',
