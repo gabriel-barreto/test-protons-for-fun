@@ -2,23 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { $clients } from '../../services';
-import { Gallery as GalleryFactory } from '../../stories/factories';
 
 import {
   ClientDetails,
   ClientsList,
   Gallery,
   Layout,
+  NotFoundIllustration,
   PageGrid,
 } from '../../components';
-import { useClients } from '../../contexts';
+
+import { useClients, usePhotos } from '../../contexts';
 
 function PhotosPage() {
-  const [activeClient, setActiveClient] = useState({});
-
   const { clients } = useClients();
-  const { userId } = useParams();
   const history = useHistory();
+  const { userId } = useParams();
+  const { photos, update: updatePhotos } = usePhotos();
+
+  const [activeClient, setActiveClient] = useState({});
 
   useEffect(() => {
     if (!clients.length) $clients.fetchAll();
@@ -34,6 +36,8 @@ function PhotosPage() {
 
   useEffect(() => {
     const { id: newUserId = 1 } = activeClient;
+
+    updatePhotos(newUserId);
     history.push(`/${newUserId}/fotos`);
   }, [activeClient]);
 
@@ -54,7 +58,11 @@ function PhotosPage() {
           <>
             <ClientsList clients={clients} />
             <ClientDetails client={activeClient}>
-              <Gallery photos={GalleryFactory.list(11)} />
+              {photos.length ? (
+                <Gallery photos={photos} />
+              ) : (
+                <NotFoundIllustration />
+              )}
             </ClientDetails>
           </>
         ) : null}
