@@ -23,3 +23,6 @@ export { useClients } from './clients.context';
 export { useLoader } from './loader.context';
 export { usePhotos } from './photos.context';
 export { usePosts } from './posts.context';
+
+export { CONTEXT_TOPIC as LoaderContextTopic } from './loader.context';
+export { CONTEXT_TOPIC as ClientContextTopic } from './clients.context';
