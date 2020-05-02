@@ -1,11 +1,21 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import PubSub from 'pubsub-js';
 import PropTypes from 'prop-types';
 
-const INITIAL_STATE = true;
+const INITIAL_STATE = false;
 const LoaderContext = createContext(INITIAL_STATE);
+
+export const CONTEXT_TOPIC = 'loaderContext';
 
 export function LoaderContextProvider({ children }) {
   const [state, setState] = useState(INITIAL_STATE);
+  const subscriber = (_, data) => setState(data);
+
+  useEffect(() => {
+    const token = PubSub.subscribe(CONTEXT_TOPIC, subscriber);
+    return () => PubSub.unsubscribe(token);
+  }, []);
+
   return (
     <LoaderContext.Provider value={{ state, setState }}>
       {children}
@@ -27,11 +37,3 @@ export const useLoader = () => {
   const { state, setState } = useContext(LoaderContext);
   return { state, setState };
 };
-
-/**
- * Update loader context state
- * @param {Object} action values should be appended/updated on state
- * @returns {boolean}
- */
-export const set = (action) =>
-  Object.assign(INITIAL_STATE, { ...INITIAL_STATE, ...action });
