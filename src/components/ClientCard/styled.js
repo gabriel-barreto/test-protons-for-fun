@@ -24,7 +24,6 @@ export const Info = styled.p`
 const hoverCard = css`
   transform: translateX(16px);
 `;
-
 const activeCard = css`
   border-left-color: ${({ theme }) => theme.colors.primary.hex()};
   > ${Title} {
@@ -40,7 +39,6 @@ const activeCard = css`
     }
   }
 `;
-
 export const Card = styled(Link)`
   background-color: ${({ theme }) => theme.colors.darkest.hex()};
   box-shadow: ${({ theme }) => theme.shadows.md};
@@ -63,7 +61,7 @@ export const Card = styled(Link)`
     }
   }
   &:active {
-    transform: translateX(0) scale(0.96);
+    transform: translateX(0);
   }
 
   &.--active {
