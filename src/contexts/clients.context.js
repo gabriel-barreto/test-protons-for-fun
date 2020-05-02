@@ -1,11 +1,20 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import PubSub from 'pubsub-js';
 import PropTypes from 'prop-types';
+
+export const CONTEXT_TOPIC = 'clientContext';
 
 const INITIAL_STATE = [];
 const ClientContext = createContext(INITIAL_STATE);
 
 export function ClientContextProvider({ children }) {
   const [clients, setClients] = useState(INITIAL_STATE);
+  const subscriber = (_, data) => setClients(data);
+
+  useEffect(() => {
+    const token = PubSub.subscribe(CONTEXT_TOPIC, subscriber);
+    return () => PubSub.unsubscribe(token);
+  }, []);
 
   return (
     <ClientContext.Provider value={{ clients, setClients }}>
