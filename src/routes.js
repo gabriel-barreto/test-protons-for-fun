@@ -12,6 +12,10 @@ export default function () {
       <Route path="/erro/nao-encontrado" component={NotFound} />
 
       <Redirect from="/" to="/1/fotos" exact />
+
+      <Redirect from="/fotos" to="/1/fotos" />
+      <Redirect from="/posts" to="/1/posts" />
+
       <Redirect to="/erro/nao-encontrado" />
     </Switch>
   );
