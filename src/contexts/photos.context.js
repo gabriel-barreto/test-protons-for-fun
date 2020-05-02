@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const INITIAL_STATE = { owner: null, items: [] };
+const INITIAL_STATE = { owner: 1, items: [] };
 const PhotosContext = createContext(INITIAL_STATE);
 
 export function PhotosContextProvider({ children }) {
@@ -27,10 +27,10 @@ PhotosContextProvider.propTypes = { children: PropTypes.node.isRequired };
 /**
  * Returns the photos context exposed values
  *
- * @typedef {Object} PhotosContextValues
- * @property {String} owner Photos owner ID
- * @property {Array} items Fetched photos
- * @property {Function} update Method to update values of state
+ * @typedef {object} PhotosContextValues
+ * @property {number|string} owner Photos owner ID
+ * @property {array} items Fetched photos
+ * @property {function} update Update context values
  *
  * @returns {PhotosContextValues}
  */
