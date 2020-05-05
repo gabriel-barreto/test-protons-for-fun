@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { Client, Post } from '../../stories/factories';
+import { usePosts } from '../../contexts';
 
-import { Layout, PageGrid } from '../../components';
-import ClientDetails from '../../components/ClientDetails';
+import { Layout, NotFoundIllustration, PageGrid } from '../../components';
 import PostsList from '../../components/PostsList';
-import ClientsList from '../../components/ClientsList';
 
 function PostsPage() {
+  const { posts, update: updatePosts } = usePosts();
+  const { userId } = useParams();
+
+  useEffect(() => {
+    updatePosts(userId);
+  }, [userId]);
+
   return (
     <Layout title="Posts">
       <PageGrid>
-        <ClientsList clients={Client.list(8)} />
-        <ClientDetails client={Client.single()}>
-          <PostsList posts={Post.list(24)} />
-        </ClientDetails>
+        {posts.length ? <PostsList posts={posts} /> : <NotFoundIllustration />}
       </PageGrid>
     </Layout>
   );
