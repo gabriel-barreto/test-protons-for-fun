@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const INITIAL_STATE = { owner: null, items: [] };
+import { $posts } from '../services';
+
+const INITIAL_STATE = { owner: 0, items: [] };
 const PostsContext = createContext(INITIAL_STATE);
 
 export function PostsContextProvider({ children }) {
@@ -10,14 +12,21 @@ export function PostsContextProvider({ children }) {
   /**
    * Update posts context state
    *
-   * @param {String} ownerId Posts owner ID
-   * @param {Array} forcedItems=[] Forced values to items
+   * @param {string|number} rawOwnerId Posts owner ID
    */
-  const update = (ownerId, forcedItems = []) =>
-    setPosts((prev) => ({ ...prev, owner: ownerId, items: forcedItems }));
+  const update = (rawOwnerId) => {
+    const ownerId = parseInt(rawOwnerId, 10);
+    if (owner !== ownerId) {
+      $posts
+        .fetchAllByUser(ownerId)
+        .then((payload) =>
+          setPosts((prev) => ({ ...prev, owner: ownerId, items: payload })),
+        );
+    }
+  };
 
   return (
-    <PostsContext.Provider value={{ owner, items, update }}>
+    <PostsContext.Provider value={{ owner, posts: items, update }}>
       {children}
     </PostsContext.Provider>
   );
@@ -27,14 +36,14 @@ PostsContextProvider.propTypes = { children: PropTypes.node.isRequired };
 /**
  * Return the posts context provider
  *
- * @typedef {Object} PostsContextValues
- * @property {String} owner Posts owner ID
- * @property {Array} items List of posts of user
- * @property {Function} update Method to update values of context
+ * @typedef {object} PostsContextValues
+ * @property {string|number} owner Posts owner ID
+ * @property {array<object>} posts List of posts of user
+ * @property {function} update Method to update values of context
  *
  * @returns {PostsContextValues}
  */
 export const usePosts = () => {
-  const { owner, items, update } = useContext(PostsContext);
-  return { owner, items, update };
+  const { owner, posts, update } = useContext(PostsContext);
+  return { owner, posts, update };
 };
