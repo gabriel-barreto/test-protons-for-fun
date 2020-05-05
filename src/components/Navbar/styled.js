@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { $breakpoints } from '../../utils';
+
 export const Navbar = styled.nav`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.darkest.hex()};
@@ -8,19 +10,28 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
-  padding: 3.2rem 6.4rem;
+  padding: 2.4rem 3.2rem;
   width: 100%;
+  z-index: 9;
+
+  @media screen and (min-width: ${$breakpoints('md')}) {
+    padding: 3.2rem 6.4rem;
+  }
 `;
 
 export const Brand = styled.img`
   align-items: center;
   display: flex;
-  height: 4.8rem;
+  height: 3.2rem;
   object-fit: fill;
   object-position: center;
   width: auto;
+
+  @media screen and (min-width: ${$breakpoints('md')}) {
+    height: 4.8rem;
+  }
 `;
 
 export const Nav = styled.ul`
@@ -28,6 +39,19 @@ export const Nav = styled.ul`
   display: flex;
   justify-content: flex-end;
   height: 100%;
+
+  left: 0;
+  position: absolute;
+  transform: translateX(-100%);
+  top: 0;
+  z-index: 9;
+
+  @media screen and (min-width: ${$breakpoints('md')}) {
+    left: auto;
+    position: relative;
+    top: auto;
+    z-index: auto;
+  }
 `;
 
 export const NavItem = styled.li`
