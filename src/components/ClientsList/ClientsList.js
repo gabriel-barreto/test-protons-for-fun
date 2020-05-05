@@ -6,11 +6,11 @@ import * as S from './styled';
 
 import ClientCard from '../ClientCard';
 
-function ClientsList({ clients }) {
+function ClientsList({ className, clients }) {
   const { userId = '0' } = useParams();
 
   return (
-    <S.List>
+    <S.List className={className}>
       {clients.map(({ company, email, id, name }) => (
         <S.Item key={id}>
           <ClientCard
@@ -26,8 +26,9 @@ function ClientsList({ clients }) {
   );
 }
 
-ClientsList.defaultProps = { clients: [] };
+ClientsList.defaultProps = { className: '', clients: [] };
 ClientsList.propTypes = {
+  className: '',
   clients: PropTypes.arrayOf(PropTypes.shape(ClientCard.propTypes)),
 };
 
