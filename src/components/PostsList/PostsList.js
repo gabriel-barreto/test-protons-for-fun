@@ -22,7 +22,7 @@ PostsList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       ...PostCard.propTypes,
-      id: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     }),
   ),
 };
