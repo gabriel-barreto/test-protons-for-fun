@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { $breakpoints } from '../../utils';
+
 export const Grid = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
@@ -12,8 +14,15 @@ export const Grid = styled.div`
 export const ActivePhoto = styled.img`
   height: 100%;
   box-shadow: ${({ theme }) => theme.shadows.md};
-  min-height: 72rem;
+  min-height: 32rem;
   object-fit: cover;
   object-position: center;
   width: 100%;
+
+  @media screen and (min-width: ${$breakpoints('md')}) {
+    min-height: 48rem;
+  }
+  @media screen and (min-width: ${$breakpoints('lg')}) {
+    min-height: 72rem;
+  }
 `;
