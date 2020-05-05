@@ -12,7 +12,7 @@ export const Grid = styled.section`
     display: grid;
     grid-column-gap: 6.4rem;
     grid-template-columns: 1fr 2.5fr;
-    height: ${({ theme }) => theme.sizes.layoutWrapper};
+    height: calc(100% - (112px + 64px));
   }
 `;
 

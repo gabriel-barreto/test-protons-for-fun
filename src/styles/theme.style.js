@@ -16,9 +16,6 @@ const colors = {
   lightest: chroma('#FFFFFF'),
 };
 
-const navbarHeight = 112;
-const margins = 64;
-
 export default {
   colors,
   shadows: {
@@ -30,7 +27,6 @@ export default {
     h2: '2.4rem',
     h3: '2rem',
     p: '1.6rem',
-    layoutWrapper: `calc(100vh - ${navbarHeight + margins}px)`,
   },
   weights: {
     normal: '400',
